@@ -9,11 +9,12 @@
 		$name = $db->escape_string($_POST["name"]);
 		$year = $db->escape_string($_POST["year"]);
 		$day  = $db->escape_string($_POST["day"]);
-		$month = $db->escape_string($_POST["month"]);
+		$month_id = $db->escape_string($_POST["month"]);
 		
 		// Prepare query and execute
-		$query = "INSERT INTO `birthdays`(`person`, `day`, `month`, `year`) VALUES ('$name', $day, $month, $year)";
+		$query = "INSERT INTO `birthdays`(`name`, `day`, `month_id`, `year`) VALUES ('$name', $day, $month_id, $year)";
 		$result = $db->query($query);
+		
 	
 	    // Tell the browser to go back to the index page.
 	    header("Location: ./");
