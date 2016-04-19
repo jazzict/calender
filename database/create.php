@@ -26,7 +26,7 @@
 				<?php 
 					foreach ($months as $month):
 				?>
-					<option value="<?=$month[1]?>"><?=$month[0]?></option>}
+					<option value="<?=$month['id']?>"><?=$month['month']?></option>}
 				<?php 
 					endforeach;
 				 ?>
