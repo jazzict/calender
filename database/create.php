@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<h2>Creër een verjaardag</h2>
+	<h2>Nieuwe verjaardag</h2>
 	<form method="post" action="create.logic.php">
 		<div>
 			<label for="name">Name:</label>
