@@ -16,7 +16,17 @@
 	<label>Naam:<input type="text" name="name" value="<?=$birthday['name']?>"></label><br>
 	<label>Jaar:<input type="text" name="year" value="<?=$birthday['year']?>"></label><br>
 	<label>Dag:<input type="text" name="day" value="<?=$birthday['day']?>"></label><br>
-	<label>Maand:<input type="text" name="month" value="<?=$birthday['month']?>"></label><br>
+	<label>Maand  </label>
+	<select name="month" id="month">
+	<?php 
+					foreach ($months as $month):
+				?>
+					<option value="<?=$month['id']?>"<?php if ($birthday['month_id'] == $month['id']) { echo 'selected'; } ?> ><?=$month['month']?></option>}
+					
+				<?php 
+					endforeach;
+				 ?> <br>
+	</select>
 	<input type="submit" value="Verzenden">
 	</form>
 	<a href="index.php"><button>Annuleren</button></a>

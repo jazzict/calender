@@ -7,9 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	if (isset($_GET['id'])) {
 
 		$id = $_GET['id'];
-		$query = "SELECT * FROM `birthdays` INNER JOIN months ON birthdays.month_id=months.id WHERE birthdays.id = $id";
+		$query = "SELECT `birthdays`.*, `months`.month FROM `birthdays` INNER JOIN months ON birthdays.month_id=months.id WHERE birthdays.id = $id";
 		$result = $db->query($query);
 		$birthday = $result->fetch_assoc();
+		
+		$sql = "SELECT * FROM months";
+		$result = $db->query($sql);
+		$months = $result->fetch_all(MYSQLI_ASSOC);
+		
 
 	} else {
 		header("Location: ./index.php");
@@ -25,14 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$month = $_POST['month'];
 		$year = $_POST['year'];
 
-		$query = "UPDATE `calender`.`birthdays` SET `name` = '$name', `day` = '$day', `month_id` = '$month', `year` = '$year' WHERE `birthdays`.`id` = $id";
+		$query = "UPDATE `calender`.`birthdays` SET `name` = '$name', `day` = $day, `month_id` = $month, `year` = $year WHERE `birthdays`.`id` = $id";
 
 		echo $query;
 
 		$result = $db->query($query);
 
-		//header("Location: ./index.php");
-		//exit();
+		header("Location: ./index.php");
+		exit();
 	} else {
 		header("Location: ./index.php");
 	}
